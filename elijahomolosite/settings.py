@@ -10,7 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+import environ
+
+root = environ.Path(__file__) - 3  # get root of the project
+env = environ.Env()
+environ.Env.read_env()  # reading .env file
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -118,4 +127,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'nw_site/uploads').replace('\\', '/')
+MEDIA_ROOT = "/Users/eomolo/projects/elijahomolosite/uploads"
+MEDIA_URL = '/uploads/'
+
 STATIC_URL = '/static/'
+
+STATIC_ROOT = "/Users/eomolo/projects/elijahomolosite"
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, './blog/static/'),
+)

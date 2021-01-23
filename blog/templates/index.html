@@ -1,18 +1,80 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    {% if latest_post_list %}
-    <ul>
-    {% for post in latest_post_list %}
-        <li><a href="/{{ post.id }}/">{{ post.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No posts are available.</p>
-{% endif %}
-  </body>
-</html>
+{% extends '_partial.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="hero-section">
+      <div class="hero-content w-container">
+        <a href="#Latest-post" style="opacity:0" class="button w-button">View Latest Posts</a>
+      </div>
+    </div>
+    <div id="posts" class="main-section bottom-padding">
+      <div id="Latest-post" class="w-container">
+        <div class="section-heading">
+          <h2 class="section-title">Featured Posts</h2>
+          <div class="med-divider"></div>
+        </div>
+        <div class="w-dyn-list">
+          <div role="list" class="w-clearfix w-dyn-items w-row">
+            <div role="listitem" class="featuredthumbnail w-dyn-item w-col w-col-6">
+              <a href="#" data-w-id="3c1b0055-dd47-cc77-5812-26c30ac7c948" class="featured-wrapper w-inline-block">
+                <div>
+                  <div class="category-tag-2"></div>
+                  <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="featured-image"></div>
+                </div>
+                <div class="featured-text">
+                  <div class="featured-title"></div>
+                  <div class="featured-description"></div>
+                  <div class="featured-details">
+                    <div class="w-clearfix"><img src="" alt="" class="author-img">
+                      <div class="author-title lite"></div>
+                      <div class="thumbnail-date lite"></div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="w-dyn-empty">
+            <p>No items found.</p>
+          </div>
+        </div>
+      </div>
+      <div class="w-container">
+        <div class="section-heading">
+          <h2 class="section-title">Most Recent</h2>
+          <div class="med-divider"></div>
+        </div>
+        <div class="w-dyn-list">
+          <div role="list" class="w-clearfix w-dyn-items w-row">
+            {% if latest_post_list %}
+            {% for post in latest_post_list %}
+            <div role="listitem" class="blog-thumbnail w-dyn-item w-col w-col-4">
+              <a href="#" data-w-id="46150442-4efa-9d36-3a4c-20d527e7a6bc" class="thumbnail-wrapper w-inline-block">
+                <div class="image-wrapper">
+                  <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="thumbnail-image"></div>
+                  <div class="category-tag">{{ post.category }}</div>
+                </div>
+                <div class="thumbnail-text">
+                  <div class="blog-title">{{ post.title}}</div>
+                  <div class="preview-text">{{ post.body}}</div>
+                </div>
+                <div class="thumb-details w-clearfix"><img src="" alt="" class="author-img">
+                  <div class="author-title">{{ post.author }}</div>
+                  <div class="thumbnail-date">{{ post.pub_date }}</div>
+                </div>
+              </a>
+            </div>
+              {% endfor %}
+              {% else %}
+
+
+          </div>
+          <div class="w-dyn-empty">
+            <p>No items found.</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
