@@ -7,6 +7,7 @@ class Category(models.Model):
     created_at = models.DateTimeField('date created')
     updated_at = models.DateTimeField('date published')
     title = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='static/images')
 
     class Meta:
         verbose_name = "Category"
@@ -24,6 +25,7 @@ class Post(models.Model):
     is_published = models.BooleanField(default=False, verbose_name="Publish?")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default="uncategorized")
     author = models.ForeignKey('auth.User',on_delete=models.CASCADE, default="Elijah Omolo")
+    featured = models.BooleanField(default=False)
 
     def publish(self):
         self.is_published = True
