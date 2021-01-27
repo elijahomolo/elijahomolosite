@@ -60,8 +60,8 @@
             <div role="listitem" class="blog-thumbnail w-dyn-item w-col w-col-4">
               <a href="/{{ post.id }}" data-w-id="46150442-4efa-9d36-3a4c-20d527e7a6bc" class="thumbnail-wrapper w-inline-block">
                 <div class="image-wrapper">
-                  <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="thumbnail-image"></div>
-                  <div class="category-tag">{{ post.category }}</div>
+                  <img src="{{ post.category.image.url  }}" loading="lazy" srcset="{{ post.category.image.url  }}"   alt="" class="thumbnail-image">
+                  <div style="background-color:powderblue;" class="category-tag">{{ post.category }}</div>
                 </div>
                 <div class="thumbnail-text">
                   <div class="blog-title">{{ post.title}}</div>

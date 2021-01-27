@@ -7,7 +7,7 @@ class Category(models.Model):
     created_at = models.DateTimeField('date created')
     updated_at = models.DateTimeField('date published')
     title = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='static/images')
+    image = models.ImageField()
 
     class Meta:
         verbose_name = "Category"
@@ -16,6 +16,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class Post(models.Model):
     title = models.CharField(max_length=50)

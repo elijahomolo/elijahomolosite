@@ -128,8 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'nw_site/uploads').replace('\\', '/')
-MEDIA_ROOT = "/Users/eomolo/projects/elijahomolosite/uploads"
-MEDIA_URL = '/uploads/'
+MEDIA_ROOT = "/Users/eomolo/projects/elijahomolosite/media"
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 
