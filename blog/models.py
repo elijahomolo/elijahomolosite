@@ -8,6 +8,7 @@ class Category(models.Model):
     updated_at = models.DateTimeField('date published')
     title = models.CharField(max_length=255)
     image = models.ImageField()
+    background_color = models.CharField(max_length=20, default="#5cc489")
 
     class Meta:
         verbose_name = "Category"
