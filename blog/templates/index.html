@@ -21,15 +21,15 @@
             <div role="listitem" class="featuredthumbnail w-dyn-item w-col w-col-6">
               <a href="#" data-w-id="3c1b0055-dd47-cc77-5812-26c30ac7c948" class="featured-wrapper w-inline-block">
                 <div>
-                  <div class="category-tag-2">{{ post.category }}</div>
-                  <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="featured-image"></div>
+                  <div style="background-color:{{post.category.background_color }};" class="category-tag-2">{{ post.category }}</div>
+                  <div style="background-image: url({{ post.category.image.url }});" class="featured-image"></div>
                 </div>
                 <div class="featured-text">
                   <div class="featured-title">{{ post.title}}</div>
                   <div class="featured-description">{{ post.body}}</div>
                   <div class="featured-details">
                     <div class="w-clearfix"><img src="" alt="" class="author-img">
-                      <div class="author-title lite">{{ post.author }}</div>
+                      <div class="author-title lite">{{ post.author.get_short_name }}</div>
                       <div class="thumbnail-date lite">{{ post.pub_date }}</div>
                     </div>
                   </div>
@@ -68,7 +68,7 @@
                   <div class="preview-text">{{ post.body}}</div>
                 </div>
                 <div class="thumb-details w-clearfix"><img src="" alt="" class="author-img">
-                  <div class="author-title">{{ post.author }}</div>
+                  <div class="author-title">{{ post.author.get_short_name }}</div>
                   <div class="thumbnail-date">{{ post.pub_date }}</div>
                 </div>
               </a>
