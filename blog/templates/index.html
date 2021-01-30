@@ -30,7 +30,7 @@
                   <div class="featured-details">
                     <div class="w-clearfix"><img src="" alt="" class="author-img">
                       <div class="author-title lite">{{ post.author.get_short_name }}</div>
-                      <div class="thumbnail-date lite">{{ post.pub_date }}</div>
+                      <div class="thumbnail-date lite">{{ post.pub_date.date }}</div>
                     </div>
                   </div>
                 </div>
@@ -65,11 +65,11 @@
                 </div>
                 <div class="thumbnail-text">
                   <div class="blog-title">{{ post.title}}</div>
-                  <div class="preview-text">{{ post.body}}</div>
+                  <div class="preview-text">{{ post.description }}</div>
                 </div>
                 <div class="thumb-details w-clearfix"><img src="" alt="" class="author-img">
                   <div class="author-title">{{ post.author.get_short_name }}</div>
-                  <div class="thumbnail-date">{{ post.pub_date }}</div>
+                  <div class="thumbnail-date">{{ post.pub_date.date }}</div>
                 </div>
               </a>
             </div>

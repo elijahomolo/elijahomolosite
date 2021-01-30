@@ -1,0 +1,81 @@
+{% extends '_partial.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="hero-section">
+  <div class="hero-content w-container">
+  <div class="main-section">
+    <div class="w-container">
+      <div class="section-heading">
+        <h1 class="blog-post-title">{{ post.title }}</h1>
+        <div class="blog-date">{{ post.pub_date}}</div>
+        <a href="/" data-w-expand="category" class="blog-category">{{ post.category }}</a>
+        <div class="full-divide"></div>
+      </div>
+      <div class="blog-post w-richtext"><p1>{{ post.body }}</p1></div>
+      <div>
+        <div class="full-divide"></div>
+        <div class="author-wrapper">
+          <a href="#" data-w-expand="authors" class="author-name">{{ post.author.get_short_name }}</a>
+          <div class="smallest-divider"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
+<div class="w-container">
+  <div class="main-section gray">
+    <div class="w-container">
+      <div class="section-heading">
+        <h2>Related Posts</h2>
+  <!--
+
+
+
+
+        <div class="med-divider"></div>
+      </div>
+      <div class="w-dyn-list">
+        <div role="list" class="w-clearfix w-dyn-items w-row">
+          <div role="listitem" class="blog-thumbnail w-dyn-item w-col w-col-3">
+            <a href="#" data-w-id="38873f1b-fb6c-7ab7-bfe8-8929fbeb9146" class="thumbnail-wrapper w-inline-block">
+              <div class="image-wrapper">
+                <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="thumbnail-image"></div>
+                <div class="category-tag"></div>
+              </div>
+              <div class="thumbnail-text">
+                <div class="blog-title"></div>
+                <div class="preview-text">{{ post.body }}</div>
+              </div>
+              <div class="thumb-details w-clearfix"><img src="" alt="" class="author-img">
+                <div class="author-title"></div>
+                <div class="thumbnail-date"></div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="w-dyn-empty">
+          <p>No items found.</p>
+
+
+
+  -->
+  </div>
+  </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  {% endblock %}

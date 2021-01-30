@@ -22,6 +22,7 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=50)
     body = models.TextField(max_length=10000, default="no content yet")
+    description = models.TextField(max_length=1000, default="details about this post")
     pub_date = models.DateTimeField('date published')
     updated_at = models.DateTimeField('date updated', default=timezone.now())
     is_published = models.BooleanField(default=False, verbose_name="Publish?")
