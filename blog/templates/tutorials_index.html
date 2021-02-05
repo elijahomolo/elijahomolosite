@@ -1,0 +1,90 @@
+{% extends '_partial.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="hero-section">
+      <div class="hero-content w-container">
+        <a href="#Latest-tutorial" style="opacity:0" class="button w-button">View Latest tutorials</a>
+      </div>
+    </div>
+    <div id="tutorials" class="main-section bottom-padding">
+      <div id="Latest-tutorial" class="w-container">
+        <div class="section-heading">
+          <h2 class="section-title">Featured tutorials</h2>
+          <div class="med-divider"></div>
+        </div>
+        <div class="w-dyn-list">
+          <div role="list" class="w-clearfix w-dyn-items w-row">
+            {% if latest_tutorial_list %}
+            {% for tutorial in latest_tutorial_list %}
+            {% if tutorial.featured %}
+            <div role="listitem" class="featuredthumbnail w-dyn-item w-col w-col-6">
+              <a href="/tutorials/{{ tutorial.id }}" data-w-id="3c1b0055-dd47-cc77-5812-26c30ac7c948" class="featured-wrapper w-inline-block">
+                <div>
+                  <div style="background-color:{{tutorial.category.background_color }};" class="category-tag-2">{{ tutorial.category }}</div>
+                  <div style="background-image: url({{ tutorial.category.image.url }});" class="featured-image"></div>
+                </div>
+                <div class="featured-text">
+                  <div class="featured-title">{{ tutorial.title}}</div>
+                  <div class="featured-description">{{ tutorial.description }}</div>
+                  <div class="featured-details">
+                    <div class="w-clearfix"><img src="" alt="" class="author-img">
+                      <div class="author-title lite">{{ tutorial.author.get_short_name }}</div>
+                      <div class="thumbnail-date lite">{{ tutorial.pub_date.date }}</div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div>
+          {% endif %}
+          {% endfor %}
+          {% else %}
+          <div class="w-dyn-empty">
+            <p>No items found.</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      <div class="w-container">
+        <div class="section-heading">
+          <h2 class="section-title">Most Recent</h2>
+          <div class="med-divider"></div>
+        </div>
+        <div class="w-dyn-list">
+          <div role="list" class="w-clearfix w-dyn-items w-row">
+            {% if latest_tutorial_list %}
+            {% for tutorial in latest_tutorial_list %}
+            {% if tutorial.is_published %}
+            <div role="listitem" class="blog-thumbnail w-dyn-item w-col w-col-4">
+              <a href="/tutorials/{{ tutorial.id }}" data-w-id="46150442-4efa-9d36-3a4c-20d527e7a6bc" class="thumbnail-wrapper w-inline-block">
+                <div class="image-wrapper">
+                  <img src="{{ tutorial.category.image.url  }}" loading="lazy" srcset="{{ tutorial.category.image.url  }}"   alt="" class="thumbnail-image">
+                  <div style="background-color:{{tutorial.category.background_color }};" class="category-tag">{{ tutorial.category }}</div>
+                </div>
+                <div class="thumbnail-text">
+                  <div class="blog-title">{{ tutorial.title}}</div>
+                  <div class="preview-text">{{ tutorial.description }}</div>
+                </div>
+                <div class="thumb-details w-clearfix"><img src="" alt="" class="author-img">
+                  <div class="author-title">{{ tutorial.author.get_short_name }}</div>
+                  <div class="thumbnail-date">{{ tutorial.pub_date.date }}</div>
+                </div>
+              </a>
+            </div>
+              {% endif %}
+              {% endfor %}
+              {% else %}
+
+
+          </div>
+          <div class="w-dyn-empty">
+            <p>No items found.</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}

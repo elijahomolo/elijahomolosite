@@ -1,0 +1,23 @@
+{% extends '_partial.html' %}
+{% load static %}
+
+{% block content %}
+
+  <div>
+    <div class="inner-hero about-page">
+      <div class="w-container">
+        <h1 class="hero-header">{{ tutorial.title }}</h1>
+      </div>
+    </div>
+    <div id="tutorials" class="main-section">
+      <div class="w-container">
+        <div class="w-richtext">
+          <p> {{tutorial.body}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  {% endblock %}
