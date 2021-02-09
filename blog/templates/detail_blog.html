@@ -3,6 +3,9 @@
 
 {% block content %}
 
+
+
+
   <div>
     <div class="inner-hero about-page">
       <div class="w-container">
@@ -12,7 +15,7 @@
     <div id="posts" class="main-section">
       <div class="w-container">
         <div class="w-richtext">
-          <p> {{post.body}}</p>
+          <p> {{post.formatted_markdown|safe}}</p>
         </div>
       </div>
     </div>

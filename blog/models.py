@@ -1,5 +1,9 @@
 from django.db import models
 from django.utils import timezone
+from markdownx.models import MarkdownxField
+from markdownx.utils import markdownify
+
+
 
 
 # Create your models here.
@@ -21,7 +25,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    body = models.TextField(max_length=10000, default="no content yet")
+    body = MarkdownxField(max_length=10000, default="no content yet")
     description = models.TextField(max_length=1000, default="details about this post")
     pub_date = models.DateTimeField('date published')
     updated_at = models.DateTimeField('date updated', default=timezone.now())
@@ -29,6 +33,14 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default="uncategorized")
     author = models.ForeignKey('auth.User',on_delete=models.CASCADE, default="Elijah Omolo")
     featured = models.BooleanField(default=False)
+
+        # Create a property that returns the markdown instead
+    @property
+    def formatted_markdown(self):
+        return markdownify(self.body)
+
+    def get_absolute_url(self):
+        return reverse('article-detail', kwargs={'pk': self.pk})
 
     def publish(self):
         self.is_published = True

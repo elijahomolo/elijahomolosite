@@ -15,6 +15,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import environ
+import datetime
 
 
 root = environ.Path(__file__) - 3  # get root of the project
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'markdownx',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +138,8 @@ USE_TZ = True
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'nw_site/uploads').replace('\\', '/')
 MEDIA_ROOT = "/Users/eomolo/projects/elijahomolosite/media"
 MEDIA_URL = '/media/'
+MARKDOWNX_MEDIA_PATH = datetime.date.today().strftime('markdownx/%Y/%m/%d')
+
 
 STATIC_URL = '/static/'
 

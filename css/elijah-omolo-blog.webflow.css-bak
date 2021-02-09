@@ -1,15 +1,3 @@
-.w-layout-grid {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-columns: 1fr;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: auto auto;
-  grid-template-rows: auto auto;
-  grid-row-gap: 16px;
-  grid-column-gap: 16px;
-}
-
 body {
   font-family: Lora, sans-serif;
   color: #333;
@@ -215,7 +203,7 @@ img {
 }
 
 .main-section.bottom-padding {
-  padding-top: 104px;
+  padding-top: 0px;
   padding-bottom: 89px;
 }
 
@@ -967,81 +955,6 @@ img {
   align-items: stretch;
 }
 
-.grid {
-  margin-top: 50px;
-  margin-bottom: 184px;
-  padding-top: 42px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  justify-items: center;
-  grid-column-gap: 32px;
-  grid-row-gap: 32px;
-}
-
-.link {
-  position: static;
-  float: none;
-  clear: none;
-  border-radius: 0px;
-  direction: ltr;
-  font-size: 50px;
-  line-height: 20px;
-  text-align: center;
-  text-transform: none;
-  -o-object-fit: fill;
-  object-fit: fill;
-}
-
-.container-2 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-top: 0px;
-}
-
-.link-2 {
-  font-size: 50px;
-  line-height: 20px;
-  text-align: center;
-}
-
-.link-3 {
-  font-size: 100px;
-  line-height: 50px;
-}
-
-.link-4 {
-  font-size: 50px;
-  line-height: 20px;
-  text-align: center;
-}
-
-.link-5 {
-  font-size: 50px;
-  line-height: 20px;
-  text-align: center;
-}
-
-.div-block {
-  margin-top: auto;
-  padding-bottom: 60px;
-}
-
-.div-block-2 {
-  margin-top: 0px;
-  padding-top: 0px;
-  padding-bottom: 60px;
-}
-
-.div-block-3 {
-  padding-bottom: 60px;
-}
-
-.div-block-4 {
-  padding-bottom: 60px;
-}
-
 @media screen and (max-width: 991px) {
   .navbar {
     padding-right: 15px;
@@ -1399,24 +1312,4 @@ img {
   .success-text {
     line-height: 27px;
   }
-}
-
-#w-node-96d42b809cb1-9127d93c {
-  -ms-grid-column-align: center;
-  justify-self: center;
-}
-
-#w-node-be763e71a81b-9127d93c {
-  -ms-grid-column-align: center;
-  justify-self: center;
-}
-
-#w-node-2d3b5183ab2a-9127d93c {
-  -ms-grid-column-align: center;
-  justify-self: center;
-}
-
-#w-node-3acc2661bb1d-9127d93c {
-  -ms-grid-column-align: center;
-  justify-self: center;
 }
