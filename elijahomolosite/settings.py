@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'tutorials.apps.TutorialsConfig',
     'portfolio.apps.PortfolioConfig',
     'about.apps.AboutConfig',
+    'sendemail.apps.SendemailConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -148,3 +149,6 @@ STATIC_ROOT = "/Users/eomolo/projects/elijahomolosite"
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, './blog/static/'),
 )
+
+DEFAULT_FROM_EMAIL = 'eomolo11@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

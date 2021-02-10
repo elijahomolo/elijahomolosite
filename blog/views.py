@@ -2,6 +2,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
 from .models import Post, Category
+from markdownx.fields import MarkdownxFormField
+
 
 
 # Create your views here.

@@ -28,4 +28,5 @@ urlpatterns = [
     path('about/', include('about.urls')),
     path('admin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
+    path('', include('sendemail.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
