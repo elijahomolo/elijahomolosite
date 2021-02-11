@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^((n%kvn7h#pnf(96%^u0e7@c8(@d!!bnc#_$!*lc^d=q09^bq'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -150,5 +150,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, './blog/static/'),
 )
 
-DEFAULT_FROM_EMAIL = 'eomolo11@gmail.com'
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
+DEFAULT_FROM_EMAIL = 'contact@elijahomolo.com'
+EMAIL_HOST = 'smtp.sendgrid.net' # new
+EMAIL_HOST_USER = 'apikey' # new
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD") # new
+EMAIL_PORT = 587 # new
+EMAIL_USE_TLS = True # new
