@@ -7,6 +7,19 @@
         <a href="#Latest-tutorial" style="opacity:0" class="button w-button">View Latest tutorials</a>
       </div>
     </div>
+    <div id="sidebar">
+      <h2>Categories</h2>
+      <div class="navlist">
+        <ul>
+          {% if latest_category_list %}
+          {% for category in latest_category_list %}
+          <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
     <div id="tutorials" class="main-section bottom-padding">
       <div id="Latest-tutorial" class="w-container">
         <div class="section-heading">
@@ -19,7 +32,7 @@
             {% for tutorial in latest_tutorial_list %}
             {% if tutorial.featured %}
             <div role="listitem" class="featuredthumbnail w-dyn-item w-col w-col-6">
-              <a href="/tutorials/{{ tutorial.id }}" data-w-id="3c1b0055-dd47-cc77-5812-26c30ac7c948" class="featured-wrapper w-inline-block">
+              <a href="{{ tutorial.get_absolute_url }}" data-w-id="3c1b0055-dd47-cc77-5812-26c30ac7c948" class="featured-wrapper w-inline-block">
                 <div>
                   <div style="background-color:{{tutorial.category.background_color }};" class="category-tag-2">{{ tutorial.category }}</div>
                   <div style="background-image: url({{ tutorial.category.image.url }});" class="featured-image"></div>
@@ -58,7 +71,7 @@
             {% for tutorial in latest_tutorial_list %}
             {% if tutorial.is_published %}
             <div role="listitem" class="blog-thumbnail w-dyn-item w-col w-col-4">
-              <a href="/tutorials/{{ tutorial.id }}" data-w-id="46150442-4efa-9d36-3a4c-20d527e7a6bc" class="thumbnail-wrapper w-inline-block">
+              <a href="{{ tutorial.get_absolute_url }}" data-w-id="46150442-4efa-9d36-3a4c-20d527e7a6bc" class="thumbnail-wrapper w-inline-block">
                 <div class="image-wrapper">
                   <img src="{{ tutorial.category.image.url  }}" loading="lazy" srcset="{{ tutorial.category.image.url  }}"   alt="" class="thumbnail-image">
                   <div style="background-color:{{tutorial.category.background_color }};" class="category-tag">{{ tutorial.category }}</div>

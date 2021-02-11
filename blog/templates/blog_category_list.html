@@ -1,0 +1,64 @@
+{% extends '_partial.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="hero-section">
+      <div class="hero-content w-container">
+        <a href="#Latest-post" style="opacity:0" class="button w-button">View Latest Posts</a>
+      </div>
+    </div>
+
+    <div id="sidebar">
+      <h2>Categories</h2>
+      <div class="navlist">
+        <ul>
+          {% for category in category %}
+          <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div id="posts" class="main-section bottom-padding">
+      <div id="Latest-post" class="w-container">
+        <div class="section-heading">
+          <h2 class="section-title">{{ object.title }}</h2>
+          <div class="med-divider"></div>
+        </div>
+        <div class="w-dyn-list">
+          <div role="list" class="w-clearfix w-dyn-items w-row">
+            {% if  object.tutorial_set.all %}
+            {% for tutorial in object.tutorial_set.all %}
+            <div role="listitem" class="featuredthumbnail w-dyn-item w-col w-col-6">
+              <a href="/blog/{{ tutorial.id }}" data-w-id="3c1b0055-dd47-cc77-5812-26c30ac7c948" class="featured-wrapper w-inline-block">
+                <div>
+                  <div style="background-color:{{tutorial.category.background_color }};" class="category-tag-2">{{ tutorial.category }}</div>
+                  <div style="background-image: url({{ tutorial.category.image.url }});" class="featured-image"></div>
+                </div>
+                <div class="featured-text">
+                  <div class="featured-title">{{ tutorial.title}}</div>
+                  <div class="featured-description">{{ tutorial.description }}</div>
+                  <div class="featured-details">
+                    <div class="w-clearfix">
+                      <div class="author-title lite">{{ tutorial.author.get_short_name }}</div>
+                      <div class="thumbnail-date lite">{{ tutorial.pub_date.date }}</div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div>
+          {% endfor %}
+          {% else %}
+          <div class="w-dyn-empty">
+            <p>No items found.</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+
+    {% endblock %}
