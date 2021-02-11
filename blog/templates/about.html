@@ -1,0 +1,23 @@
+{% extends '_partial.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+  <div class="inner-hero about-page">
+    <div class="w-container">
+      <h1 class="hero-header">About Me</h1>
+    </div>
+  </div>
+  <div id="posts" class="main-section">
+
+    <div class="w-container"><img src="{{ about.image_upload.url }}" loading="lazy" alt="" class="image">
+      <div class="w-richtext">
+        <p> {{about.bio}}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  {% endblock %}

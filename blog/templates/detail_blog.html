@@ -1,0 +1,28 @@
+{% extends '_partial.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+  <div>
+    <div class="inner-hero about-page">
+      <div class="w-container">
+        <h1 class="hero-header">{{ post.title }}</h1>
+      </div>
+    </div>
+    <div id="posts" class="main-section">
+      <div class="w-container">
+        <div class="w-richtext">
+          <p> {{post.formatted_markdown|safe}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script defer src="https://cdn.commento.io/js/commento.js"></script>
+  <div id="commento"></div>
+
+  {% endblock %}

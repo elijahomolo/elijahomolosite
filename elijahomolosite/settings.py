@@ -10,7 +10,18 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+
 from pathlib import Path
+from dotenv import load_dotenv
+import os
+import environ
+import datetime
+
+
+root = environ.Path(__file__) - 3  # get root of the project
+env = environ.Env()
+environ.Env.read_env()  # reading .env file
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^((n%kvn7h#pnf(96%^u0e7@c8(@d!!bnc#_$!*lc^d=q09^bq'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,12 +43,17 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
+    'tutorials.apps.TutorialsConfig',
+    'portfolio.apps.PortfolioConfig',
+    'about.apps.AboutConfig',
+    'sendemail.apps.SendemailConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'markdownx',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +65,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'elijahomolosite.urls'
 
@@ -118,4 +136,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'nw_site/uploads').replace('\\', '/')
+MEDIA_ROOT = "/Users/eomolo/projects/elijahomolosite/media"
+MEDIA_URL = '/media/'
+MARKDOWNX_MEDIA_PATH = datetime.date.today().strftime('markdownx/%Y/%m/%d')
+
+
 STATIC_URL = '/static/'
+
+STATIC_ROOT = "/Users/eomolo/projects/elijahomolosite"
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, './blog/static/'),
+)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
+DEFAULT_FROM_EMAIL = 'contact@elijahomolo.com'
+EMAIL_HOST = 'smtp.sendgrid.net' # new
+EMAIL_HOST_USER = 'apikey' # new
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD") # new
+EMAIL_PORT = 587 # new
+EMAIL_USE_TLS = True # new
