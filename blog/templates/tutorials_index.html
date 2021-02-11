@@ -17,8 +17,18 @@
           {% endfor %}
           {% endif %}
         </ul>
+        <h2>Tags</h2>
+          <ul class="nav-link w-nav-link">
+            {% if tag_list %}
+            {% for tag in tag_list %}
+            <li><a href="{{ category.get_absolute_url }}">{{ tag }}</a></li>
+            {% endfor %}
+            {% endif %}
+          </ul>
       </div>
+
     </div>
+
 
     <div id="tutorials" class="main-section bottom-padding">
       <div id="Latest-tutorial" class="w-container">

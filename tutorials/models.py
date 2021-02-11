@@ -3,6 +3,8 @@ from django.utils import timezone
 from markdownx.models import MarkdownxField
 from markdownx.utils import markdownify
 from django.urls import reverse
+from taggit.managers import TaggableManager
+
 
 
 
@@ -39,6 +41,7 @@ class Tutorial(models.Model):
     author = models.ForeignKey('auth.User',on_delete=models.CASCADE, default="Elijah Omolo")
     featured = models.BooleanField(default=False)
     slug = models.SlugField(null=True, unique=True)
+    tags = TaggableManager()
 
     @property
     def formatted_markdown(self):
@@ -54,5 +57,5 @@ class Tutorial(models.Model):
         self.save()
 
     def __str__(self):
-        string = self.title 
+        string = self.title
         return string
