@@ -96,9 +96,11 @@ img {
   position: relative;
   height: 300px;
   padding-top: 184px;
-  background-image: linear-gradient(135deg, rgba(30, 33, 33, 0.82) 1%, rgba(32, 32, 32, 0.14) 98%), url('../images/photo-1439189741837-58720e8d82d5.jpg');
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background-color: #2D2D2D;
 }
 
 .navbar {
@@ -111,6 +113,7 @@ img {
   background-color: transparent;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.33)), color-stop(99%, transparent));
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.33), transparent 99%);
+
 }
 
 .menu-link {
@@ -586,19 +589,19 @@ img {
   position: relative;
   height: 300px;
   padding-top: 125px;
-  background-image: url('../images/bridges.jpg');
   background-position: 50% 50%;
   background-size: cover;
   text-align: center;
+
 }
 
 .inner-hero.about-page {
-  background-image: url('../images/photo-1438636740648-37d6fed50dad.jpg');
   background-size: cover;
+
+  background-color: #2D2D2D;
 }
 
 .inner-hero.category {
-  background-image: url('../images/photo-1413977886085-3bbbf9a7cf6e.jpg');
   background-size: cover;
 }
 
@@ -1424,7 +1427,7 @@ img {
 #sidebar {
   float: left;
   width: 180px;
-  margin: 0 10px 0 0;
+  margin: 0 10px 3px 0;
   padding: 10px;
   border-right: 1px solid #eee;
   color: #666;
@@ -1443,7 +1446,7 @@ img {
 #sidebar {
   float: left;
   width: 180px;
-  margin: 0 10px 0 0;
+  margin: 0 10px 3px 0;
   padding: 10px;
   border-right: 1px solid #eee;
   color: #666;
@@ -1458,3 +1461,8 @@ img {
   color: #B29B35;
   background: inherit;
 }
+
+#sidebar li {
+    position: relative;
+    padding-left: 11px;
+    margin: 0 0 3px 0;

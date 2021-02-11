@@ -12,7 +12,7 @@
     <div id="tutorials" class="main-section">
       <div class="w-container">
         <div class="w-richtext">
-          <p> {{ tutorial.body }}</p>
+          <p> {{ tutorial.formatted_markdown|safe }}</p>
         </div>
       </div>
     </div>

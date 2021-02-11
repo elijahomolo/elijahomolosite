@@ -4,13 +4,13 @@
 {% block content %}
     <div class="hero-section">
       <div class="hero-content w-container">
-        <a href="#Latest-tutorial" style="opacity:0" class="button w-button">View Latest tutorials</a>
+<!--        <a href="#Latest-tutorial" style="opacity:0" class="button w-button">View Latest tutorials</a> -->
       </div>
     </div>
     <div id="sidebar">
       <h2>Categories</h2>
-      <div class="navlist">
-        <ul>
+      <div class="nav-menu w-nav-menu">
+        <ul class="nav-link w-nav-link">
           {% if latest_category_list %}
           {% for category in latest_category_list %}
           <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
