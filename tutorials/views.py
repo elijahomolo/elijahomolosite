@@ -15,6 +15,8 @@ class CategoryList(DetailView):
             context = super(CategoryList, self).get_context_data(**kwargs)
             context['tutorial'] = Tutorial.objects.filter(category=self.object)
             context['category'] = Category.objects.all()
+            context['tags'] = Tutorial.tags.all()
+
             return context
 
 
