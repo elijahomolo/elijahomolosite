@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.views.generic import ListView, DetailView
 from markdownx.fields import MarkdownxFormField
 from .models import Tutorial, Category
+from taggit.models import Tag
 
 
 class CategoryList(DetailView):
@@ -14,6 +15,8 @@ class CategoryList(DetailView):
             context = super(CategoryList, self).get_context_data(**kwargs)
             context['tutorial'] = Tutorial.objects.filter(category=self.object)
             context['category'] = Category.objects.all()
+            context['tags'] = Tutorial.tags.all()
+
             return context
 
 
@@ -31,9 +34,11 @@ class TutorialList(DetailView):
 def index(request):
     latest_tutorial_list = Tutorial.objects.order_by('-pub_date')[:5]
     latest_category_list = Category.objects.order_by('created_at')[:5]
+    tag_list = Tutorial.tags.all()
     context = {
         'latest_tutorial_list': latest_tutorial_list,
         'latest_category_list': latest_category_list,
+        'tag_list' : tag_list
     }
     return render(request, 'tutorials_index.html', context)
 
